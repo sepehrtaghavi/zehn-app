@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پشتیبانی - ذهن | Support - Zehn</title>
+<meta name="description" content="صفحه پشتیبانی اپلیکیشن ذهن. سوالات متداول و راه‌های تماس.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep: #0A1628;
+    --bg-card: #122B3D;
+    --bg-elevated: #1E3A50;
+    --accent: #1A9E96;
+    --accent-light: #2ECDC1;
+    --gold: #D4A843;
+    --text-primary: #F0EDE8;
+    --text-secondary: #8BA4A0;
+    --text-hint: #5A7A74;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Vazirmatn', -apple-system, sans-serif;
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    line-height: 1.8;
+    direction: rtl;
+  }
+
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ── Header ── */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .back-link:hover { opacity: 0.7; }
+
+  h1 {
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+
+  .page-sub {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin-bottom: 48px;
+  }
+
+  /* ── Contact Card ── */
+  .contact-card {
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-elevated));
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 40px;
+    border: 1px solid #1E3A5060;
+    text-align: center;
+  }
+
+  .contact-card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--accent-light);
+  }
+
+  .contact-card p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .email-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .email-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px #1A9E9640;
+  }
+
+  .response-time {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--text-hint);
+  }
+
+  /* ── FAQ ── */
+  .faq-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--gold);
+  }
+
+  .faq-item {
+    background: var(--bg-card);
+    border-radius: 16px;
+    margin-bottom: 12px;
+    border: 1px solid #1E3A5040;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .faq-item:hover { border-color: var(--accent); }
+
+  .faq-q {
+    padding: 20px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .faq-q::after {
+    content: '▼';
+    font-size: 10px;
+    color: var(--text-hint);
+    transition: transform 0.3s;
+  }
+
+  .faq-item.open .faq-q::after { transform: rotate(180deg); }
+
+  .faq-a {
+    padding: 0 24px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s, padding 0.3s;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .faq-item.open .faq-a {
+    max-height: 300px;
+    padding: 0 24px 20px;
+  }
+
+  /* ── Subscription Help ── */
+  .help-section {
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid var(--bg-elevated);
+  }
+
+  .help-section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .help-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .help-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-primary);
+    border: 1px solid #1E3A5040;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .help-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+
+  .help-card .icon { font-size: 28px; margin-bottom: 12px; display: block; }
+  .help-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .help-card p { font-size: 12px; color: var(--text-hint); }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--bg-elevated);
+    padding: 32px 24px;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  .copyright { font-size: 12px; color: var(--text-hint); }
+
+  @media (max-width: 500px) {
+    .help-cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <a href="index.html" class="back-link">→ بازگشت به صفحه اصلی</a>
+
+  <h1>پشتیبانی</h1>
+  <p class="page-sub">ما اینجاییم تا کمکت کنیم. سوالی داری؟ از طریق ایمیل با ما در تماس باش.</p>
+
+  <!-- Contact Card -->
+  <div class="contact-card">
+    <h2>📬 تماس با تیم ذهن</h2>
+    <p>برای هر سوال، پیشنهاد، یا مشکل فنی، ایمیل بزن:</p>
+    <a href="mailto:support@zehn.app" class="email-btn">
+      ✉ support@zehn.app
+    </a>
+    <p class="response-time">پاسخ‌گویی معمولاً ظرف ۲۴ ساعت</p>
+  </div>
+
+  <!-- FAQ -->
+  <h2 class="faq-title">سوالات متداول</h2>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      چگونه اشتراک پریمیوم را فعال کنم؟
+    </div>
+    <div class="faq-a">
+      در اپلیکیشن به صفحه «من» بروید و «اشتراک پریمیوم» را انتخاب کنید. می‌توانید اشتراک ماهانه یا سالانه را از طریق App Store یا Google Play خریداری کنید.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      چگونه اشتراک خود را لغو کنم؟
+    </div>
+    <div class="faq-a">
+      <strong>iOS:</strong> تنظیمات → نام شما → اشتراک‌ها → ذهن → لغو اشتراک<br>
+      <strong>Android:</strong> Google Play Store → منو → اشتراک‌ها → ذهن → لغو اشتراک<br><br>
+      لغو اشتراک از طریق اپلیکیشن ذهن امکان‌پذیر نیست، زیرا پرداخت‌ها توسط Apple و Google مدیریت می‌شوند.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      خرید قبلی من بازیابی نمی‌شود. چه کنم؟
+    </div>
+    <div class="faq-a">
+      به صفحه «من» → «بازیابی خرید» بروید. اگر باز هم مشکل داشتید، مطمئن شوید با همان Apple ID یا Google Account که خرید اولیه را انجام داده‌اید وارد شده‌اید. در غیر این صورت با ما تماس بگیرید.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      آیا جلسات رایگان هم وجود دارد؟
+    </div>
+    <div class="faq-a">
+      بله! ذهن شامل چندین جلسه رایگان مدیتیشن است. با نصب اپلیکیشن فوراً به جلسات رایگان دسترسی دارید — بدون نیاز به ثبت‌نام یا پرداخت.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      چگونه حساب خود را حذف کنم؟
+    </div>
+    <div class="faq-a">
+      در اپلیکیشن به صفحه «من» بروید و «حذف حساب» را انتخاب کنید. تمام داده‌های شما از سرور حذف خواهد شد. توجه داشته باشید که لغو اشتراک به صورت جداگانه از تنظیمات App Store یا Google Play انجام می‌شود.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      صداهای مدیتیشن واقعی هستند؟
+    </div>
+    <div class="faq-a">
+      جلسات صوتی ذهن با استفاده از فناوری هوش مصنوعی تولید شده‌اند. این روش به ما امکان می‌دهد محتوای با کیفیت بالا و منظم ارائه دهیم.
+    </div>
+  </div>
+
+  <!-- Subscription Management Links -->
+  <div class="help-section">
+    <h2>مدیریت اشتراک</h2>
+    <div class="help-cards">
+      <a href="https://apps.apple.com/account/subscriptions" class="help-card" target="_blank">
+        <span class="icon">🍎</span>
+        <h3>اشتراک iOS</h3>
+        <p>مدیریت از App Store</p>
+      </a>
+      <a href="https://play.google.com/store/account/subscriptions" class="help-card" target="_blank">
+        <span class="icon">🤖</span>
+        <h3>اشتراک Android</h3>
+        <p>مدیریت از Google Play</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">صفحه اصلی</a>
+    <a href="privacy.html">حریم خصوصی</a>
+    <a href="terms.html">شرایط استفاده</a>
+  </div>
+  <p class="copyright">© ۲۰۲۶ ذهن (Zehn). تمام حقوق محفوظ است.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ذهن — مدیتیشن فارسی | Zehn - Persian Meditation App</title>
+<meta name="description" content="ذهن، اولین اپلیکیشن مراقبه و مدیتیشن فارسی. آرامش ذهن را به زبان مادری‌ات تجربه کن.">
+<meta name="keywords" content="meditation, مدیتیشن, مراقبه, فارسی, Persian, mindfulness, آرامش, ذهن, Zehn">
+<meta property="og:title" content="ذهن — مدیتیشن فارسی">
+<meta property="og:description" content="اولین اپلیکیشن مراقبه فارسی. آرامش ذهن را به زبان مادری‌ات تجربه کن.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep: #0A1628;
+    --bg-card: #122B3D;
+    --bg-elevated: #1E3A50;
+    --accent: #1A9E96;
+    --accent-light: #2ECDC1;
+    --gold: #D4A843;
+    --gold-glow: #D4A84366;
+    --text-primary: #F0EDE8;
+    --text-secondary: #8BA4A0;
+    --text-hint: #5A7A74;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Vazirmatn', -apple-system, sans-serif;
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    line-height: 1.8;
+    direction: rtl;
+    overflow-x: hidden;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    position: relative;
+    background: radial-gradient(ellipse at 50% 20%, #1A9E9618 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, #D4A84310 0%, transparent 50%),
+                var(--bg-deep);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to top, var(--bg-deep), transparent);
+  }
+
+  .logo {
+    width: 100px;
+    height: 100px;
+    background: var(--accent);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 32px;
+    box-shadow: 0 8px 40px #1A9E9640;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 8vw, 64px);
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+  }
+
+  .hero .tagline {
+    font-size: clamp(18px, 4vw, 24px);
+    color: var(--accent-light);
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+
+  .hero .sub {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin-bottom: 40px;
+  }
+
+  .store-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .store-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .store-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  .store-btn.ios {
+    background: white;
+    color: #000;
+  }
+
+  .store-btn.android {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    border: 1px solid var(--text-hint);
+  }
+
+  .store-btn svg { width: 22px; height: 22px; }
+
+  /* ── Section ── */
+  section {
+    padding: 80px 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 48px;
+    color: var(--text-primary);
+  }
+
+  .section-title span {
+    color: var(--accent);
+  }
+
+  /* ── Features Grid ── */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .feature-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+    border: 1px solid #1E3A5060;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+  }
+
+  .feature-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .feature-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+
+  .feature-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ── Premium ── */
+  .premium-section {
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-elevated));
+    border-radius: 28px;
+    padding: 48px 32px;
+    text-align: center;
+    border: 1px solid var(--gold-glow);
+    max-width: 700px;
+    margin: 0 auto 80px;
+  }
+
+  .premium-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold), #E8C060);
+    color: var(--bg-deep);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .premium-section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .premium-features {
+    list-style: none;
+    text-align: right;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .premium-features li {
+    padding: 10px 0;
+    font-size: 15px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .premium-features li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--bg-elevated);
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  .copyright {
+    font-size: 13px;
+    color: var(--text-hint);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .features { grid-template-columns: 1fr; }
+    .premium-section { padding: 32px 20px; }
+    .store-buttons { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="logo">ذ</div>
+    <h1>ذهن</h1>
+    <p class="tagline">مدیتیشن به زبان مادری‌ات</p>
+    <p class="sub">اولین اپلیکیشن مراقبه فارسی. با جلسات هدایت‌شده، پیشنهاد هوشمند و صداهای آرامش‌بخش، آرامش درونی را تجربه کن.</p>
+    <div class="store-buttons">
+      <a href="#" class="store-btn ios">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 16.56 2.93 11.3 4.7 7.72C5.57 5.94 7.36 4.86 9.28 4.84C10.56 4.82 11.78 5.72 12.57 5.72C13.36 5.72 14.85 4.62 16.4 4.8C17.06 4.83 18.89 5.09 20.08 6.8C19.97 6.87 17.63 8.27 17.66 11.06C17.69 14.38 20.58 15.45 20.6 15.46C20.58 15.5 20.14 17 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+        App Store
+      </a>
+      <a href="#" class="store-btn android">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+        Google Play
+      </a>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <section>
+    <h2 class="section-title">چرا <span>ذهن</span>؟</h2>
+    <div class="features">
+      <div class="feature-card">
+        <span class="feature-icon">🧘</span>
+        <h3>مدیتیشن فارسی</h3>
+        <p>جلسات هدایت‌شده کاملاً فارسی، طراحی‌شده برای فارسی‌زبانان سراسر دنیا</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">✨</span>
+        <h3>پیشنهاد هوشمند</h3>
+        <p>بر اساس زمان روز و حال روحی‌ات، بهترین جلسه مراقبه پیشنهاد می‌شود</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🎵</span>
+        <h3>صداهای محیطی</h3>
+        <p>صدای باران، جنگل، اقیانوس و موسیقی آرام را با مدیتیشن ترکیب کن</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📊</span>
+        <h3>آمار و پیشرفت</h3>
+        <p>زنجیره روزانه، تقویم مراقبه و آمار کلی را دنبال کن و انگیزه بگیر</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🔔</span>
+        <h3>یادآوری روزانه</h3>
+        <p>هر روز در زمان دلخواه، یادآوری مراقبه دریافت کن</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🌙</span>
+        <h3>طراحی آرامش‌بخش</h3>
+        <p>رابط کاربری تاریک و زیبا، بدون حواس‌پرتی، طراحی‌شده برای تمرکز</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium -->
+  <section>
+    <div class="premium-section">
+      <div class="premium-badge">پریمیوم</div>
+      <h2>تجربه کامل آرامش</h2>
+      <ul class="premium-features">
+        <li>دسترسی به تمام جلسات مدیتیشن</li>
+        <li>پیشنهاد هوشمند مراقبه</li>
+        <li>آمار و پیشرفت کامل</li>
+        <li>تقویم مراقبه و زنجیره روزانه</li>
+        <li>جلسات جدید هر ماه</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="privacy.html">حریم خصوصی</a>
+      <a href="terms.html">شرایط استفاده</a>
+      <a href="support.html">پشتیبانی</a>
+      <a href="mailto:support@zehn.app">تماس با ما</a>
+    </div>
+    <p class="copyright">© ۲۰۲۶ ذهن (Zehn). تمام حقوق محفوظ است.</p>
+  </footer>
+
+</body>
+</html>
